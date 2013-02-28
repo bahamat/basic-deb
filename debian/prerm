@@ -1,0 +1,3 @@
+#!/bin/bash
+
+# Execute actions before removal of files when uninstalling package

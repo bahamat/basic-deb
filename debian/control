@@ -1,0 +1,16 @@
+Source: pkg-name
+Priority: optional
+Maintainer: Your Name <you@example.com>
+Build-Depends: debhelper (>= 4.0.0)
+Standards-Version: 3.6.1
+Section: misc # See http://packages.debian.org/stable/ for a section. YOU MUST REMOVE THIS COMMENT!!
+
+Package: pkg-name
+Section: misc # See http://packages.debian.org/stable/ for a section. YOU MUST REMOVE THIS COMMENT!!
+Architecture: all
+Depends: libc6
+Pre-Depends: libc6
+Description: Short one line description.
+ Longer multiline descriptoion.
+
+ Paragraphs are supported too.
