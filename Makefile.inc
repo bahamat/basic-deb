@@ -8,9 +8,8 @@ package:
 install:
 	mkdir -p $(DESTDIR)$(INSTALL_DIR)/
 	cp -r $(SRC_DIR) $(DESTDIR)$(INSTALL_DIR)/
-	find $(DESTDIR)$(INSTALL_DIR)/ -type f -name .DS_Store -exec rm -f {} \;
-	# find $(DESTDIR)$(INSTALL_DIR)/ -type d -name .svn -exec rm -rf {} \;
+	find $(DESTDIR)$(INSTALL_DIR)/ -type f -name .DS_Store -exec $(RM) {} \;
 
 clean:
-	rm -rf debian/$(PACKAGE)
-	*stamp
+	$(RM) -r debian/$(PACKAGE)
+	$(RM) *stamp

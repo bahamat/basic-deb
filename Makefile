@@ -1,3 +1,3 @@
 include Makefile.inc
-SRC_DIR=etc usr
+SRC_DIR=src/*
 INSTALL_DIR=/

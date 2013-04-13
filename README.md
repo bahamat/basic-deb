@@ -3,27 +3,36 @@
 This is intended to help in creating *very* basic Debian packages. It's only for
 a package where you're simply copying files into place, but want to use a `.deb`.
 
-If you want to compile something this, there are other better places to start.
+If you want to compile something, there are other better places to start.
 
-## Using this framework
+## Getting Started
 
-What gets installed is controlled by the `Makefile`.
+* Run `mkdir src`.
+* Place files into `src` as though it were the root directory.
 
-    SRC_DIR=etc usr
+### Package Metadata (Required)
 
- ...will install to this path on the target system.
+To create the `changelog` run:
 
-    INSTALL_DIR=/
+    debchange --create
 
-Example:
+Fill in the information about the package and save it.
 
-    SRC_DIR=foo
-    INSTALL_DIR=/var/www
+Then edit the following files to describe your package.
 
-This will be installed to /var/www/foo
+* `debian/control` contains all package metadata.
+* `debian/copyright` contains licensing information.
+
+### Scripts (Optional)
+
+Edit these scripts to perform actions at install and uninstall time.
+
+* `debian/preinst` runs before package installation.
+* `debian/postinst` runs after package installation.
+* `debian/prerm` runs before package removal.
+* `debian/postrm` runs after package removal.
 
 ## Building
 
-1. Use `debchange` to edit the `changelog`.
-2. Run `fakeroot debian/rules binary`
-
+1. Run `debchange -i` to update the `changelog` after each change.
+2. Run `fakeroot debian/rules binary` to build your `.deb`.
